@@ -13,7 +13,7 @@ build: [
   ["dune" "build" "-p" name "-j" jobs]
 ]
 depends: [
-  "ocaml" { >= "4.05" }
+  "ocaml" { >= "4.08" }
   "dune"  { >= "2.0"  }
 ]
-synopsis: "Implementations of the union-find data structure"
+synopsis: "Implementations of reference stores"

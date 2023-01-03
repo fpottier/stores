@@ -5,8 +5,8 @@ such as persistent stores, mutable stores backed by mutable arrays,
 and more.
 
 {!modules:
-UnionFind.StoreRef
-UnionFind.StoreVector
-UnionFind.StoreMap
-UnionFind.StoreTransactionalRef
+Stores.StoreRef
+Stores.StoreVector
+Stores.StoreMap
+Stores.StoreTransactionalRef
 }

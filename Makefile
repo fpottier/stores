@@ -57,13 +57,13 @@ test:
 # loops below are structured in a strange way.
 .PHONY: bench
 bench:
-	@ dune build bench/benchStores.exe
+	@ dune build bench/bench.exe
 	@ for BENCH in Raw ; do \
           for IMPL in Ref TransactionalRef Map Vector ; do \
 	  echo "BENCH=$$BENCH IMPL=$$IMPL" ; \
 	  BENCH=$$BENCH IMPL=$$IMPL \
 	  NCREATE=10 NREAD=20 NWRITE=15 ROUNDS=100 \
-	  time _build/default/bench/benchStores.exe || true ; \
+	  time _build/default/bench/bench.exe || true ; \
 	  done ; \
 	  done
 	@ for BENCH in Transactional-raw Transactional-full ; do \
@@ -71,7 +71,7 @@ bench:
 	  echo "BENCH=$$BENCH IMPL=$$IMPL" ; \
 	  BENCH=$$BENCH IMPL=$$IMPL \
 	  NCREATE=10 NREAD=20 NWRITE=15 ROUNDS=100 \
-	  time _build/default/bench/benchStores.exe || true ; \
+	  time _build/default/bench/bench.exe || true ; \
 	  done ; \
 	  done
 
@@ -85,9 +85,6 @@ bench:
 #   opam switch create 4.03.0
 
 VERSIONS := \
-  4.05.0 \
-  4.06.1 \
-  4.07.1 \
   4.08.1 \
   4.09.1 \
   4.09.0+bytecode-only \
