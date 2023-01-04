@@ -7,7 +7,7 @@ type univ =
    The functions [project] and [inject] respectively apply [Tag] and
    match against [Tag]. *)
 
-let make (type a) () : (a -> univ) * (univ -> a option) =
+let make (type a) () : (a -> univ) * (univ -> a) =
 
   let module T = struct
 
@@ -16,12 +16,10 @@ let make (type a) () : (a -> univ) * (univ -> a option) =
     let inject (x : a) : univ =
       Tag x
 
-    let project (u : univ) : a option =
+    let project (u : univ) : a =
       match u with
-      | Tag x ->
-	  Some x
-      | _ ->
-	  None
+      | Tag x -> x
+      | _ -> failwith "Univ: tag mismatch"
 
   end in
   T.inject, T.project

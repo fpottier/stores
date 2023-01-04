@@ -1,6 +1,6 @@
 (***************************************************************************)
 (*                                                                         *)
-(*                                 UnionFind                               *)
+(*                                 Stores                                  *)
 (*                                                                         *)
 (*                       François Pottier, Inria Paris                     *)
 (*                                                                         *)
@@ -117,7 +117,7 @@ module Heterogeneous (S : STORE)
 
   type 'a rref = {
     inject: 'a -> univ;
-    project: univ -> 'a option;
+    project: univ -> 'a;
     content: univ S.rref;
   }
 
@@ -133,12 +133,7 @@ module Heterogeneous (S : STORE)
     { inject; project; content }
 
   let get s r =
-    match r.project (S.get s r.content) with
-    | Some v ->
-        v
-    | None ->
-        (* A dynamic type cast fails. This cannot happen. *)
-        assert false
+    r.project (S.get s r.content)
 
   let set s r v =
     S.set s r.content (r.inject v)

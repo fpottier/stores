@@ -1,4 +1,4 @@
 (executable
-  (public_name benchStores)
+  (public_name bench)
   (libraries stores)
-  (modules benchStores))
+  (modules bench))

@@ -1,6 +1,6 @@
 (***************************************************************************)
 (*                                                                         *)
-(*                                 UnionFind                               *)
+(*                                 Stores                                  *)
 (*                                                                         *)
 (*                       François Pottier, Inria Paris                     *)
 (*                                                                         *)
@@ -10,9 +10,9 @@
 (***************************************************************************)
 
 (**This module offers {b stores based on immutable integer maps}. These stores
-   support a constant-time [copy] operation. The module [UnionFind.StoreMap]
+   support a constant-time [copy] operation. The module [Stores.StoreMap]
    itself is an implementation of stores based on OCaml's [Map] module. The
-   functor [UnionFind.StoreMap.Make] can also be used to construct an
+   functor [Stores.StoreMap.Make] can also be used to construct an
    implementation of stores based on a user-provided implementation of
    immutable maps. *)
 
